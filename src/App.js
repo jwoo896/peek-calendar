@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Link } from 'react-router-dom';
+import Calendar from "./components/Calendar";
+import DayView from "./components/DayView";
+export default(() => {
+  const renderHeader = () => {
+    //return some navbar
+  };
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> new stuff.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        {renderHeader()}
+        <Route path="/" exact component={Calendar} />
+        <Route path="/:date" component={DayView} />
+      </div>
   );
-}
-
-export default App;
+});
