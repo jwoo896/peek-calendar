@@ -4,14 +4,20 @@ import Calendar from "./components/Calendar";
 import DayView from "./components/DayView";
 export default(() => {
   const renderHeader = () => {
-    //return some navbar
+    return (
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+        </ul>
+    );
   };
 
   return (
       <div>
         {renderHeader()}
         <Route path="/" exact component={Calendar} />
-        <Route path="/:date" component={DayView} />
+        <Route path="/date/:date" component={DayView} />
       </div>
   );
 });
