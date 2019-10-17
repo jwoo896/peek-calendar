@@ -1,22 +1,23 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import Calendar from "./components/Calendar";
-import DayView from "./components/DayView";
+import CalendarView from "./components/CalendarView/CalendarView";
+import DayView from "./components/DayView/DayView";
+import './App.css';
+
+
 export default(() => {
   const renderHeader = () => {
     return (
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
+        <div className="header">
+            <Link className="link" to="/">Home</Link>
+        </div>
     );
   };
 
   return (
       <div>
         {renderHeader()}
-        <Route path="/" exact component={Calendar} />
+        <Route path="/" exact component={CalendarView} />
         <Route path="/date/:date" component={DayView} />
       </div>
   );
