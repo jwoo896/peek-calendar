@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import { AppBar, Toolbar, Button } from "@material-ui/core";
 import CalendarView from "./components/CalendarView/CalendarView";
 import DayView from "./components/DayView/DayView";
 import './App.css';
@@ -8,9 +9,11 @@ import './App.css';
 export default(() => {
   const renderHeader = () => {
     return (
-        <div className="header">
-            <Link className="link" to="/">Home</Link>
-        </div>
+        <AppBar position="sticky" color="secondary" className="header">
+            <Toolbar>
+                <Button color="inherit"><Link to="/" style={{textDecoration: 'none', color: '#fff'}}>Home</Link></Button>
+            </Toolbar>
+        </AppBar>
     );
   };
 
