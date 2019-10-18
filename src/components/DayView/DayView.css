@@ -1,0 +1,23 @@
+.day-view-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.timeslots-container {
+    min-width: 50%;
+}
+
+.timeslots-list{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.timeslots-list-item {
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
