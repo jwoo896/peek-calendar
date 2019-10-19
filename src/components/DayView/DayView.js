@@ -95,9 +95,7 @@ export default function DayView() {
     window.addEventListener("load", function(event) {
         // this function utilizes HTML collection from the web api. everything has to be loaded
         // first in order to do manipulate the DOM.
-        // TODO activity slots don't show up unless the screen is reloaded. the following function doesn't do
-        // TODO what it's supposed to on first load
-
+        // TODO activity slots don't show up unless the screen is reloaded. react is a SPA that's why.. hmmmm
         RenderActivityTiles(getOffset);
     });
 
