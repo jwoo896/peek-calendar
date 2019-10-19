@@ -5,19 +5,29 @@
     height: 100vh;
 }
 
-.timeslots-container {
+.time-slots-container {
     min-width: 50%;
+    margin-right: 2em;
 }
 
-.timeslots-list{
+.time-slots-list{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
 }
 
-.timeslots-list-item {
+.time-slots-list-item {
     height: 50px;
     position: relative;
     display: flex;
     flex-direction: row;
+}
+
+.activity-tile {
+    position: absolute;
+    border: 2px solid #f50057;
+    border-radius: .3em;
+    width: 43.5%;
+    background: white;
+    text-align: center;
 }
