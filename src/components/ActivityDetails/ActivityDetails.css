@@ -1,0 +1,5 @@
+.activity-details-card-wrapper {
+    position: sticky;
+    z-index: 1100;
+    top: 200px;
+}
