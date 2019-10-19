@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import ActivityDetails from "../ActivityDetails/ActivityDetails";
 import * as moment from 'moment';
@@ -92,10 +92,7 @@ export default function DayView() {
         getActivitiesByStartHr();
     }
 
-    window.addEventListener("load", function(event) {
-        // this function utilizes HTML collection from the web api. everything has to be loaded
-        // first in order to do manipulate the DOM.
-        // TODO activity slots don't show up unless the screen is reloaded. react is a SPA that's why.. hmmmm
+    useEffect(() => {
         RenderActivityTiles(getOffset);
     });
 
