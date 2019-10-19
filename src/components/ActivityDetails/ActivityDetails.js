@@ -23,6 +23,11 @@ const useStyles = makeStyles({
         fontSize: 30,
         textAlign: 'center',
     },
+    cardMetaData: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+    },
     cardBody: {
         fontSize: 24,
     },
@@ -47,7 +52,7 @@ export default function ActivityDetails({ activityDetails }) {
                     <Typography className={classes.cardTitle} variant='h5' component='h2'>
                         {activityDetails.activity_name}
                     </Typography>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                    <div className={classes.cardMetaData}>
                         <Typography className={classes.spaceBottom} color='textSecondary'>
                             {getHour(activityDetails.start)} - {getHour(activityDetails.end)}
                         </Typography>
