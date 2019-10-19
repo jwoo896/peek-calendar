@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import ActivityDetails from "../ActivityDetails/ActivityDetails";
+import Paper from '@material-ui/core/Paper';
 import * as moment from 'moment';
 import * as day1data from "../../mock-data/day_1";
 import './DayView.css';
@@ -37,8 +38,8 @@ export default function DayView() {
             [...Array(24)].map((x, i) => {
                     return (
                         <div className="time-slots-list-item" key={`time-slots-${i}`} id={`time-slots-${i}`} value={i}>
-                            <div style={{minWidth: '65px', textAlign: 'right', maxWidth: '65px'}}>
-                                        <span style={{top: '-12px', left: '8px', position: 'relative'}}>
+                            <div style={{textAlign: 'right', minWidth: '70px', maxWidth: '70px'}}>
+                                        <span style={{top: '-9px', left: '8px', position: 'relative'}}>
                                             {i === 0 ? ' \u00A0 ' : i < 12 ? `${i}:00 am` :
                                                 i === 12 ? `${i}:00 pm` : `${i - 12}:00 pm`}
                                         </span>
@@ -49,7 +50,7 @@ export default function DayView() {
                                 style={{
                                 marginLeft: '1em', paddingTop: '1em', paddingLeft: '1em',
                                 paddingRight: '1em', width: '100%', borderRadius: '0px',
-                                borderBottom: `${i === 23 ? '' : '1px solid lightgrey'}`}}
+                                borderTop: '1px solid lightgrey'}}
                             />
                         </div>
                     );
@@ -98,12 +99,12 @@ export default function DayView() {
 
     return (
         <div className="day-view-container">
-            <div className="time-slots-container">
-                <h2>{dateObj.format("dddd, MMMM Do YYYY")}</h2>
+            <Paper className="time-slots-container">
+                <h2 style={{textAlign: 'center'}}>{dateObj.format("dddd, MMMM Do YYYY")}</h2>
                 <div className="time-slots-list" id="time-slots-list">
                     {RenderRows()}
                 </div>
-            </div>
+            </Paper>
             <div className="activity-details-container"> {/*this will be be hidden unless an activity is selected*/}
                 {showActivityDetails === true ? <ActivityDetails activityDetails={timeSlots[selectedActivity]}/> : ''}
             </div>

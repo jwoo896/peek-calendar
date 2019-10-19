@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    height: 100vh;
 }
 
 .time-slots-container {
@@ -13,7 +12,6 @@
 .time-slots-list{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
 }
 
 .time-slots-list-item {
