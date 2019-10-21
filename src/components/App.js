@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button } from "@material-ui/core";
-import CalendarView from "./components/CalendarView/CalendarView";
-import DayView from "./components/DayView/DayView";
+import CalendarView from "./CalendarView/CalendarView";
+import DayView from "./DayView/DayView";
 import './App.css';
 
 
