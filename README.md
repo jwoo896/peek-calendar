@@ -29,9 +29,22 @@ Material-ui library.
 
 ## Development Approach and Decisions
 
+The UI design focuses on "readability" and ease of use. As stated above, the application focuses
+on a view that lists available activities on a given day. I did not spend time on creating
+a custom calendar component. Given more time, I would have created a custom component that would
+have visual cues for days that have available activities vs days that don't. Or depending on the
+goals of a deliverable, I would weigh the benefits of using a fully fleshed out calendar
+component like "react-big-calendar" against building out fully customized component from scratch.
+This time, I didn't use "react-big-calendar" because I felt the purpose of this assignment was
+to build something from scratch.
+
 I decided to use react (react hooks) to create this application because it leverages JavaScript
 concepts I'm familiar with. I considered implementing Redux, Express.JS, MongoDB but I take a
-little longer than I would like to configure these technologies with my applications. 
+little longer than I would like to configure these technologies with my applications. This 
+process (wiring up an application) hasn't happen often enough, within my previous projects,
+for me to memorize all of the 'ins and outs'. I have resources readily available to me including
+Udemy courses that I rely on for this process, as well as learning new technologies and practices
+to introduce into my professional skillset.  
 
 I would still like to share an application that I've been working on over the past month that utilizes
 the following technologies: React.js, Express.js, MongoDB, GraphQL, Apollo Client. Please feel
