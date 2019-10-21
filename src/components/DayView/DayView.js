@@ -3,20 +3,23 @@ import { useParams } from 'react-router-dom';
 import ActivityDetails from "../ActivityDetails/ActivityDetails";
 import Paper from '@material-ui/core/Paper';
 import * as moment from 'moment';
-import * as day1data from "../../mock-data/day_1";
+import * as day1data from "../../mock-data/day_1"; // In production, this would be fetched from a service
 import './DayView.css';
 
 export default function DayView() {
 
+    // Initialize state properties
     const [timeSlots, setTimeSlots] = useState({});
     const [selectedActivity, setSelectedActivity] = useState('');
     const [showActivityDetails, setShowActivityDetails] = useState(false);
 
+    // Initialize date variables with Moment.js
     let { date } = useParams();
     const dateStart = moment(day1data.timeslots[0].start);
     const dayBeforeStart = moment(day1data.timeslots[0].start).date(dateStart.date()-1);
     const dateObj = moment(date);
 
+    // Set state property with available timeslots data
     const getActivitiesByStartHr = () => {
         let tempObj = {};
         for(let [key, val] of Object.entries(day1data.timeslots)){
@@ -33,6 +36,7 @@ export default function DayView() {
         }
     }
 
+    // Template for each time slot
     const RenderRows = () => {
         return (
             [...Array(24)].map((x, i) => {
@@ -40,7 +44,7 @@ export default function DayView() {
                         <div className="time-slots-list-item" key={`time-slots-${i}`} id={`time-slots-${i}`} value={i}>
                             <div style={{textAlign: 'right', minWidth: '70px', maxWidth: '70px'}}>
                                         <span style={{top: '-9px', left: '8px', position: 'relative'}}>
-                                            {i === 0 ? ' \u00A0 ' : i < 12 ? `${i}:00 am` :
+                                            {i === 0 ? '12:00 am' : i < 12 ? `${i}:00 am` :
                                                 i === 12 ? `${i}:00 pm` : `${i - 12}:00 pm`}
                                         </span>
                             </div>
@@ -58,6 +62,7 @@ export default function DayView() {
         );
     }
 
+    // Retrieve the top and left position values of a div to determine where an Activity Tile should go
     const getOffset = (el) => {
         const rect = el.getBoundingClientRect();
         return {
@@ -66,9 +71,8 @@ export default function DayView() {
         };
     }
 
-
+    // Render clickable div that covers time slots
     const RenderActivityTiles = (fn) => {
-        //render clickable div that covers time slots
         const startSlots = document.getElementsByClassName('time-slots-list-item-block');
         for(let [key, val] of Object.entries(timeSlots)){
             if(startSlots.hasOwnProperty(key)) {
@@ -89,10 +93,12 @@ export default function DayView() {
         }
     }
 
+    // Initialize state property timeSlots *once*
     if(Object.values(timeSlots).length === 0 && dateObj <= dateStart && dateObj > dayBeforeStart) {
         getActivitiesByStartHr();
     }
 
+    // Let application know it needs to update the DOM
     useEffect(() => {
         RenderActivityTiles(getOffset);
     });
