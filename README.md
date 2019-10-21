@@ -24,7 +24,7 @@ day. The size of the blocks will be large enough to cover the time slots from th
 to the ending hour. Selecting a block will render a sticky component to the right that will
 display details relevant to the activity.
 
-On top of the "react-calendar" component, this application uses some components from the 
+In addition to the "react-calendar" component, this application uses some components from the 
 Material-ui library. 
 
 ## Development Approach and Decisions
