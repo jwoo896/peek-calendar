@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import * as moment from 'moment';
 import './ActivityDetails.css';
 
+// makeStyles is necessary to override css in Material-ui components without using !important
 const useStyles = makeStyles({
     card: {
         minWidth: '45vw',
@@ -33,7 +34,7 @@ export default function ActivityDetails({ activityDetails }) {
     const getHour = (time) =>{
         let timeMoment = moment(time);
         return timeMoment.hour() === 0 ? '12am' : timeMoment.hour() === 12 ? '12pm' :
-               timeMoment.hour() > 12 ? `${timeMoment.hour() - 12}pm` : `${timeMoment.hour()}am`;
+            timeMoment.hour() > 12 ? `${timeMoment.hour() - 12}pm` : `${timeMoment.hour()}am`;
     }
 
     return (
@@ -53,7 +54,7 @@ export default function ActivityDetails({ activityDetails }) {
                     </div>
                     <Typography className={classes.cardBody} variant='body2' component='p'>
                         {activityDetails.available_spots === 0 ? 'FULLY BOOKED' :
-                        `Available Spots: ${activityDetails.available_spots}`}
+                            `Available Spots: ${activityDetails.available_spots}`}
                         <br />
                         Duration: {activityDetails.minute_length} min
                     </Typography>

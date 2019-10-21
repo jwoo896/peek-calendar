@@ -42,8 +42,8 @@ export default function DayView() {
             [...Array(24)].map((x, i) => {
                     return (
                         <div className="time-slots-list-item" key={`time-slots-${i}`} id={`time-slots-${i}`} value={i}>
-                            <div style={{textAlign: 'right', minWidth: '70px', maxWidth: '70px'}}>
-                                        <span style={{top: '-9px', left: '8px', position: 'relative'}}>
+                            <div className="hour-text-wrapper">
+                                        <span className="hour-text-pos">
                                             {i === 0 ? '12:00 am' : i < 12 ? `${i}:00 am` :
                                                 i === 12 ? `${i}:00 pm` : `${i - 12}:00 pm`}
                                         </span>
@@ -51,10 +51,6 @@ export default function DayView() {
                             <div
                                 className="time-slots-list-item-block"
                                 id={i}
-                                style={{
-                                marginLeft: '1em', paddingTop: '1em', paddingLeft: '1em',
-                                paddingRight: '1em', width: '100%', borderRadius: '0px',
-                                borderTop: '1px solid lightgrey'}}
                             />
                         </div>
                     );
